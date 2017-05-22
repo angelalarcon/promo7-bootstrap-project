@@ -1,0 +1,325 @@
+body {
+	background-color: #7cfbff;
+	padding-bottom: 58px;
+	min-height: 100vh;
+}
+
+ul.nav-pills.nav-stacked {
+	margin: 20px 0;
+	border: none;
+	background-color: rgba(255,255,255,0.3);
+	min-height: calc(100vh - 98px);
+}
+
+ul.nav-pills.nav-stacked > li {
+	margin: 0;
+}
+
+ul.nav-pills.nav-stacked > li > a {
+	border: none;
+	padding-left: 40px;
+	position: relative;
+	border-radius: 0;
+}
+
+ul.nav-pills.nav-stacked > li > a:hover,
+ul.nav-pills.nav-stacked > li > a:focus {
+	border: none;
+	background-color: rgba(0,0,0,0.1);
+}
+
+ul.nav-pills.nav-stacked > li > a .glyphicon {
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	font-size: 20px;
+	transform: translate(-50%, -50%);
+}
+
+ul.nav-pills.nav-stacked > li > a span:last-child {
+	float: right;
+}
+
+ul.nav-pills.nav-stacked > li.active > a {
+	background-color: rgba(0,0,0,0.2);
+}
+
+.well {
+	position: relative;
+	padding: 20px 60px;
+	font-size: 20px;
+	margin: 20px 0;
+	background-color: rgba(255,255,255,0.3);
+	border: 30px solid rgba(255,255,255,0.5);
+	border-radius: 10px;
+}
+
+.well > span:first-child {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	font-size: 60px;
+}
+
+.well > span:last-child {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	font-size: 60px;
+}
+
+.box {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.box:after {
+	content: '';
+	display: block;
+	padding-top: 100%;
+}
+
+.box > input[type="radio"] {
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+
+.box > input[type="radio"] + span {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border: 3px solid rgba(0,0,0,0.2);
+	transition: border-color .3s;
+	z-index: 1;
+}
+
+.box > input[type="radio"]:checked + span,
+.box:hover > input[type="radio"] + span {
+	border-color: rgba(0,0,0,0.5);
+}
+
+.circle {
+	border-radius: 50%;
+}
+
+.box > img {
+	position: absolute;
+	height: 50%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	opacity: .2;
+	transition: opacity .3s;
+}
+
+.box > img.student {
+	opacity: 0;
+	height: 90%;
+	transform: translate(-50%, 0);
+	top: initial;
+	bottom: 0;
+	transition: .3s opacity .8s;
+}
+
+.box:hover > input[type="radio"] + span + img {
+	opacity: .5;
+}
+
+.box > input[type="radio"]:checked + span + img {
+	opacity: 0;
+}
+
+.box > input[type="radio"]:checked + span + img + img.student {
+	opacity: 1;
+}
+
+.box .full {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	overflow: hidden;
+	transition: transform .6s;
+	transform-origin: top;
+}
+
+.box .full span {
+	width: 100%;
+	height: 200%;
+	border: 3px solid rgba(0,0,0,0.5);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transition: .3s background-color .6s;
+}
+
+.box > input[type="radio"]:checked ~ .full {
+	transform: rotate(-180deg);
+}
+
+.box > input[type="radio"]:checked ~ .full span {
+	background-color: rgba(255,255,255,0.8);
+}
+
+.box .full span:before {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 3%;
+	background-color: red;
+	top: 75%;
+	left: 50%;
+	transform: 	translate(-50%, -50%)
+	rotate(45deg);
+	border-radius: 100px;
+	transition: 0.3s all 0.9s;
+}
+
+.box .full span:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 3%;
+	background-color: red;
+	top: 75%;
+	left: 50%;
+	transform: 	translate(-50%, -50%)
+	rotate(-45deg);
+	border-radius: 100px;
+	transition: 0.3s all 1s;
+}
+
+
+.box > input[type="radio"]:checked ~ .full span:before,
+.box > input[type="radio"]:checked ~ .full span:after {
+	width: 25%;
+}
+
+.box.bully .full span:before,
+.box.bully .full span:after {
+	background-color: green;
+}
+
+.box.bully > input[type="radio"]:checked ~ .full span:after {
+	transform: translate(-85%, 65%) rotate(-45deg);
+}
+
+.box.bully > input[type="radio"]:checked ~ .full span:before {
+	width: 12.5%;
+	transform: translate(-25%, -75%) rotate(45deg);
+}
+
+.student-box {
+	position: relative;
+	display: inline-block;
+	margin-bottom: calc(3vw + 10px);
+	width: 100%;
+}
+
+.student-box:hover .name {
+	color: #fff;
+}
+
+.student-box .name {
+	position: absolute;
+	width: 100%;
+	font-size: 1.5vw;
+	left: 0;
+	bottom: 0;
+	transform: translateY(calc(100% + 10px));
+	text-align: center;
+	color: rgba(0,0,0,0.3);
+	transition: color .3s;
+}
+
+.student-box .name:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	transition: width .3s;
+	z-index: -1;
+	border-radius: 20px;
+}
+
+.student-box:hover .name:after {
+	width: 100%;
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 15px 30px;
+	font-size: 20px;
+	text-align: right;
+	background-color: rgba(0,0,0,0.1);
+	text-transform: uppercase;
+}
+
+footer small {
+	text-transform: none;
+	color: rgba(0,0,0,0.5);
+}
+
+@media screen and (max-width: 768px) {
+	.col-side-left {
+		width: 100px;
+		float: left;
+	}
+	.col-side-right {
+		width: calc(100% - 100px);
+		float: left;
+	}
+	ul.nav-pills.nav-stacked > li > a:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	ul.nav-pills.nav-stacked > li > a .text {
+		display: none;
+	}
+	.well {
+		font-size: 3vw;
+	}
+	.student-box {
+		margin-bottom: calc(6vw + 10px);
+	}
+	.student-box .name {
+		font-size: 3vw;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.well {
+		padding: 10px;
+		border: 10px solid rgba(255,255,255,0.5);
+		font-size: 4vw;
+	}
+	.well > span:first-child {
+		left: -20px;
+		top: -40px;
+	}
+	.well > span:last-child {
+		right: -20px;
+		top: -40px;
+	}
+	.col-sm-3.col-xs-6 {
+		width: 100%;
+	}
+}
